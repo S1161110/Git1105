@@ -1,4 +1,3 @@
-# Git1105
 ---
 title: My Solara GIS App
 emoji: 🌍
