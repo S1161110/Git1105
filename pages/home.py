@@ -4,7 +4,7 @@ import solara
 @solara.component
 def Page():
     with solara.Column(align="center"):
-        markdown = """
+        markdown = "HomePage"
         ## 3D Mapping with Leafmap and MapLibre
 
         This is a Solara template for a 3D mapping application using Leafmap and MapLibre. Click on the menu above to see the different examples.
