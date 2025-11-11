@@ -41,7 +41,7 @@ def create_map():
             },
         ]
     }
-    m.add_geojson(stations_style, style=building_style, tooltip=True, fit_bounds=False)
+    m.add_geojson(stations_style, style=stations_style, tooltip=True, fit_bounds=False)
     m.add_geojson(road_style, style=road_style, tooltip=True, fit_bounds=False)
     return m
 
