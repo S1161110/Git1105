@@ -14,7 +14,7 @@ def create_map():
     )
 
     metro_url="https://raw.githubusercontent.com/leoluyi/taipei_mrt/refs/heads/master/routes.geojson"
-    m.add_geojson(metro_url, layer_name="台北捷運", tooltip=True)
+    m.add_geojson(metro_url)
     return m
 
 
