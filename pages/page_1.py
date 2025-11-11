@@ -13,7 +13,7 @@ def create_map():
         sidebar_visible=True,
     )
 
-    metro_url="https://github.com/leoluyi/taipei_mrt/blob/master/routes.geojson"
+    metro_url="https://raw.githubusercontent.com/leoluyi/taipei_mrt/refs/heads/master/routes.geojson"
     m.add_geojson(metro_url, layer_name="台北捷運", tooltip=True)
     return m
 
