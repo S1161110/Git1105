@@ -14,8 +14,11 @@ def create_map():
     )
 
     metro_url="https://github.com/leoluyi/taipei_mrt/blob/master/routes.geojson"
-    m.add_geojson(metro_url, layer_name="台北捷運", tooltip=True)
 
+    m.add_pmtiles(
+        building_pmtiles, style=building_style, tooltip=True, fit_bounds=False
+    )
+    m.add_pmtiles(road_pmtiles, style=road_style, tooltip=True, fit_bounds=False)
     return m
 
 
