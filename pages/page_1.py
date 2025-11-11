@@ -11,11 +11,8 @@ def Page():
     )
 
     # 載入台北捷運路網（GeoJSON）
-    # 你可以放自己的檔案或公開連結
-    url = "https://raw.githubusercontent.com/g0v/taipei-metro-data/master/metro-line.geojson"
+    url = "https://raw.githubusercontent.com/leoluyi/taipei_mrt/refs/heads/master/routes.geojson"
     m.add_geojson(url, layer_name="台北捷運")
 
-    # 在 Solara 中顯示地圖
-    solara.Figure(m)
-
-Page()
+    # ✅ 在 Solara 中顯示地圖
+    return solara.Display(m)
