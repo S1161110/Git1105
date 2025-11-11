@@ -8,23 +8,22 @@ def create_map():
         style="dark-matter",
         projection="globe",
         height="750px",
-        center=[-100, 40],
-        zoom=4,
+        center=[25.03, 121.56],
+        zoom=12,
         sidebar_visible=True,
     )
 
-    building_pmtiles = "https://overturemaps-tiles-us-west-2-beta.s3.amazonaws.com/2025-04-23/buildings.pmtiles"
-    road_pmtiles = "https://raw.githubusercontent.com/leoluyi/taipei_mrt/refs/heads/master/routes.geojson"
-    building_style = {
+    stations_url = "https://raw.githubusercontent.com/leoluyi/taipei_mrt/refs/heads/master/stations.geojson"
+    road_url = "https://raw.githubusercontent.com/leoluyi/taipei_mrt/refs/heads/master/routes.geojson"
+    stations_style = {
         "layers": [
             {
-                "id": "Buildings",
-                "source": "buildings",
-                "source-layer": "building",
-                "type": "line",
+                "id": "stations",
+                "source": "stations",
+                "type": "circle",
                 "paint": {
                     "line-color": "#ff0000",
-                    "line-width": 1,
+                    "line-width": 5,
                 },
             },
         ]
@@ -32,9 +31,8 @@ def create_map():
     road_style = {
         "layers": [
             {
-                "id": "Roads",
-                "source": "transportation",
-                "source-layer": "segment",
+                "id": "roads",
+                "source": "roads",
                 "type": "line",
                 "paint": {
                     "line-color": "#ffffff",
@@ -43,10 +41,8 @@ def create_map():
             },
         ]
     }
-    m.add_pmtiles(
-        building_pmtiles, style=building_style, tooltip=True, fit_bounds=False
-    )
-    m.add_pmtiles(road_pmtiles, style=road_style, tooltip=True, fit_bounds=False)
+    m.add_geojson(stations_style, style=building_style, tooltip=True, fit_bounds=False)
+    m.add_geojson(road_style, style=road_style, tooltip=True, fit_bounds=False)
     return m
 
 
