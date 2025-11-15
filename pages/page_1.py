@@ -15,34 +15,30 @@ def create_map():
 
     stations_url = "https://raw.githubusercontent.com/leoluyi/taipei_mrt/refs/heads/master/stations.geojson"
     road_url = "https://raw.githubusercontent.com/leoluyi/taipei_mrt/refs/heads/master/routes.geojson"
-    stations_style = {
-        "layers": [
-            {
-                "id": "stations",
-                "source": "stations",
-                "type": "circle",
-                "paint": {
-                    "line-color": "#ff0000",
-                    "line-width": 5,
-                },
-            },
-        ]
-    }
-    road_style = {
-        "layers": [
-            {
-                "id": "roads",
-                "source": "roads",
-                "type": "line",
-                "paint": {
-                    "line-color": "#ffffff",
-                    "line-width": 2,
-                },
-            },
-        ]
-    }
-    m.add_geojson(stations_style, style=stations_style, tooltip=True, fit_bounds=False)
-    m.add_geojson(road_style, style=road_style, tooltip=True, fit_bounds=False)
+
+    # 加站點（circle）
+    m.add_geojson(
+        stations_url,
+        layer_name="stations",
+        style={
+            "circle-color": "#ff0000",
+            "circle-radius": 5,
+        },
+        tooltip_property="NAME",
+        fit_bounds=True
+    )
+
+    # 加路線（線）
+    m.add_geojson(
+        road_url,
+        layer_name="roads",
+        style={
+            "line-color": "#ffffff",
+            "line-width": 2,
+        },
+        fit_bounds=False
+    )
+
     return m
 
 
