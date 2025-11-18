@@ -5,6 +5,7 @@ import leafmap.maplibregl as leafmap
 def create_map():
 
     m = leafmap.Map(
+        use_maplibregl=True,
         style="dark-matter",
         projection="globe",
         height="750px",
@@ -13,8 +14,8 @@ def create_map():
         sidebar_visible=True,
     )
 
-    stations_url = "https://raw.githubusercontent.com/leoluyi/taipei_mrt/refs/heads/master/stations.geojson"
-    road_url = "https://raw.githubusercontent.com/leoluyi/taipei_mrt/refs/heads/master/routes.geojson"
+    stations_url = "https://raw.githubusercontent.com/leoluyi/taipei_mrt/master/stations.geojson"
+    road_url = "https://raw.githubusercontent.com/leoluyi/taipei_mrt/master/routes.geojson"
 
     # 捷運站點 (Point)
     m.add_geojson(
