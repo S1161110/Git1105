@@ -8,7 +8,7 @@ def create_map():
         style="dark-matter",
         projection="globe",
         height="750px",
-        center=[25.03, 121.56],  # 台北
+        center=[121.56, 25.03],  # 台北
         zoom=12,
         sidebar_visible=True,
     )
